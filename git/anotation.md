@@ -43,4 +43,18 @@ Após é possível:
 `git push local master`  → push para empurrar os dados -> para -> LOCAL (repositório) -> na branch master
 
 ## 04. Trabalhando em equipe
+Uso do Branch para se trabalhar em diferentes partes do código em simultâneo com o time:
 
+`git branch titulo` → cria uma branch denominada titulo
+`git checkout titulo` → altera para nova branch
+`git checkout -b lista` → cria + altera para nova branch
+
+* MERGE → une modificações de diferentes branch's 
+    Exemplo: 
+       branch master → eu corrijo determinado bug
+       branch titulo → está 'versões' a frente e sem o bug corrigido (que tem relação apenas com a branch master, não titulo)
+
+       1º Passo: retornar para a branch master com `git checkout master` e realizo o commit corrigindo `git commit -m "master: bug corrigido"`
+       2º Passo: fazer o MERGE com a branch titulo com `git merge titulo` → assim irá conter modificações de ambos
+
+### Atualizando a Branch
