@@ -57,4 +57,36 @@ Uso do Branch para se trabalhar em diferentes partes do código em simultâneo c
        1º Passo: retornar para a branch master com `git checkout master` e realizo o commit corrigindo `git commit -m "master: bug corrigido"`
        2º Passo: fazer o MERGE com a branch titulo com `git merge titulo` → assim irá conter modificações de ambos
 
-### Atualizando a Branch
+### 04.01 - Atualizando a Branch
+Ao utilizar o REBASE, o git trás os commit's da branch secundaria (Titulo) para a branch principal (Master)
+`git checkout master` → `git commit -m "msg"`→ `git rebase titulo`   - Assim todos os commits em uma ÚNICA LINHA
+
+### 04.02 - Resolvendo Conflitos
+Para resolver conflitos basta identificar: 
+
+'=====' sinal que indica o arquivo atual (Código Atual)
+'>>>>>' são os dados que estou tentando trazers
+
+Após corrigir (textualmente), basta executar `git status` e depois `git add arquivo` para continuidade.
+
+## 05. Manipulando Versões
+*Control + Z do GIT:*
+    a) Case 1:  
+       Apenas editei o código sem o uso do `git add .` mas pretendo remover as modificações → `git checkout -- arquivo`
+    
+    b) Case 2:
+       Adicionei em `git add 'arquivo'` mas desejo remover → `git reset HEAD arquivo`
+
+    c) Case 3:
+       Fiz o commit → 
+          1º identificar o hash do commit através de `git log`
+          2º executar `git revert HASH`
+
+*Guardando para Depois:*
+    Stash: 
+    a) Salvar todas alterações para local temporário
+    `git stash` é salvo
+    `git stash list` exibe tudo salvo
+
+    b) Trazer os dados salvos e trabalhar com eles
+    `git stash apply numeroStash` → pega da lista do stash
